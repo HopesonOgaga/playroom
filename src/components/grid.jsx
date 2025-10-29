@@ -5,6 +5,7 @@ function Games() {
       desc: "Tactical shooter full of intense rounds and strategy.",
       logo: "/images/card/valorant.png",
       status: "Ongoing",
+      price: "$0",
      
     },
     {
@@ -12,6 +13,7 @@ function Games() {
       desc: "Battle royale with heroes, squads, and fast-paced combat.",
       logo: "/images/card/apex.jpg",
       status: "Upcoming",
+      price: "$0",
      
     },
     {
@@ -19,6 +21,7 @@ function Games() {
       desc: "Classic FPS reinvented for the modern era.",
       logo: "/images/card/csgo.png",
       status: "Ongoing",
+      price: "$0",
       
     },
     {
@@ -26,6 +29,7 @@ function Games() {
       desc: "Creative, competitive, and endlessly fun.",
       logo: "/images/card/fornite.jpg",
       status: "Ongoing",
+      price: "$0",
      
     },
     {
@@ -33,6 +37,7 @@ function Games() {
       desc: "Battle for dominance in the Rift with your team.",
       logo: "/images/card/lol.jpg",
       status: "Ongoing",
+      price: "$0",
       
     },
     {
@@ -40,6 +45,7 @@ function Games() {
       desc: "Survive, scavenge, and conquer in open-world chaos.",
       logo: "/images/card/pubg.jpg",
       status: "Upcoming",
+      price: "$0",
       
     },
   ];
@@ -81,7 +87,7 @@ function Games() {
                 {p.name}
               </h3>
               <p className="text-gray-400 text-sm mb-4">{p.desc}</p>
-
+              <span className="text-lg font-bold text-white">{p.price}</span>
             </div>
           ))}
         </div>
