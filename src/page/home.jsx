@@ -1,3 +1,4 @@
+import VideoCarousel from "../components/carousel";
 import FeaturedPrograms from "../components/featurd";
 import Games from "../components/grid";
 import FOOTER from "./footer";
@@ -51,6 +52,7 @@ function HOME() {
         {/* CONTENT SECTIONS */}
         <section className="w-full">
           <Games />
+          <VideoCarousel></VideoCarousel>
           <FeaturedPrograms />
         </section>
       </section>
