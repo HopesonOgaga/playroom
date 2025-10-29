@@ -7,34 +7,33 @@ const HEADER = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-black/70 backdrop-blur-md z-50 mb-10">
+    <header className="fixed top-0 left-0 w-full bg-[var(--dark-bg)]/80 backdrop-blur-lg z-50 shadow-[0_2px_12px_rgba(0,0,0,0.3)]">
       <nav className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4 text-white">
-        {/* Logo / Title */}
+        {/* Logo */}
         <Link to={"/"}>
-          {" "}
-          <div className="text-4xl italic tracking-wide text-orange-500 font-bold capitalize">
+          <div className="text-3xl md:text-5xl italic font-extrabold tracking-wide bg-gradient-to-r from-[var(--red-start)] to-[var(--red-end)] bg-clip-text text-transparent">
             playroom
           </div>
         </Link>
 
         {/* Desktop Menu */}
         <section className="flex gap-3">
-          <ul className="hidden md:flex items-center gap-8 text-sm uppercase font-medium">
+          <ul className="hidden md:flex items-center gap-8 text-sm uppercase font-medium tracking-wide">
             <Link to="/dashboard">
-              <li className="hover:text-emerald-400 transition-colors cursor-pointer">
+              <li className="hover:text-[var(--red-end)] transition-colors cursor-pointer">
                 dashboard
               </li>
             </Link>
-            <li className="hover:text-emerald-400 transition-colors cursor-pointer">
+            <li className="hover:text-[var(--red-end)] transition-colors cursor-pointer">
               tournament
             </li>
-            <li className="hover:text-emerald-400 transition-colors cursor-pointer">
+            <li className="hover:text-[var(--red-end)] transition-colors cursor-pointer">
               challenges
             </li>
           </ul>
 
           {/* Connect Button */}
-          <div className="hidden md:flex w-36 h-11 border-2 border-white items-center justify-center rounded-lg hover:bg-white hover:text-black transition-colors cursor-pointer">
+          <div className="hidden md:flex w-36 h-11 border border-[var(--red-end)] items-center justify-center rounded-xl text-[var(--red-start)] hover:bg-gradient-to-r hover:from-[var(--red-start)] hover:to-[var(--red-end)] hover:text-white font-semibold transition-all duration-300 cursor-pointer">
             connect wallet
           </div>
         </section>
@@ -54,7 +53,6 @@ const HEADER = () => {
       <AnimatePresence>
         {menuOpen && (
           <>
-            {/* Dim background */}
             <motion.div
               className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
               initial={{ opacity: 0 }}
@@ -63,16 +61,15 @@ const HEADER = () => {
               onClick={() => setMenuOpen(false)}
             />
 
-            {/* Slide-in Menu from Right */}
             <motion.aside
-              className="fixed top-0 right-0 h-full w-3/4 max-w-sm bg-gray-900 z-50 flex flex-col p-6 space-y-6"
+              className="fixed top-0 right-0 h-full w-3/4 max-w-sm bg-[var(--dark-bg)]/95 z-50 flex flex-col p-6 space-y-8 border-l border-[var(--red-end)]"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 80 }}
             >
               <div className="flex justify-between items-center">
-                <p className="text-xl font-semibold">plaroom</p>
+                <p className="text-xl font-bold text-[var(--red-end)]">playroom</p>
                 <button onClick={() => setMenuOpen(false)}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -92,18 +89,18 @@ const HEADER = () => {
               </div>
 
               <ul className="flex flex-col gap-6 text-lg">
-                <li className="hover:text-emerald-400 transition-colors">
+                <li className="hover:text-[var(--red-end)] transition-colors">
                   dashboard
                 </li>
-                <li className="hover:text-emerald-400 transition-colors">
+                <li className="hover:text-[var(--red-end)] transition-colors">
                   tournament
                 </li>
-                <li className="hover:text-emerald-400 transition-colors">
+                <li className="hover:text-[var(--red-end)] transition-colors">
                   challenges
                 </li>
               </ul>
 
-              <div className="w-full h-12 border-2 border-white flex items-center justify-center rounded-lg hover:bg-white hover:text-black transition-colors">
+              <div className="w-full h-12 border border-[var(--red-end)] flex items-center justify-center rounded-lg text-[var(--red-start)] hover:bg-gradient-to-r hover:from-[var(--red-start)] hover:to-[var(--red-end)] hover:text-white transition-all duration-300">
                 connect wallet
               </div>
             </motion.aside>
