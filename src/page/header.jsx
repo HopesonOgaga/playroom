@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const HEADER = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -9,14 +10,14 @@ const HEADER = () => {
     <header className="fixed top-0 left-0 w-full bg-black/70 backdrop-blur-md z-50 mb-10">
       <nav className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4 text-white">
         {/* Logo / Title */}
-        <div className="text-4xl italic tracking-wide text-orange-500 font-bold capitalize">
+       <Link to={"/"}> <div className="text-4xl italic tracking-wide text-orange-500 font-bold capitalize">
           playroom
-        </div>
+        </div></Link>
 
         {/* Desktop Menu */}
       <section className="flex gap-3">
           <ul className="hidden md:flex items-center gap-8 text-sm uppercase font-medium">
-          <li className="hover:text-emerald-400 transition-colors cursor-pointer">dashboard</li>
+          <Link to="/dashboard"><li className="hover:text-emerald-400 transition-colors cursor-pointer">dashboard</li></Link>
           <li className="hover:text-emerald-400 transition-colors cursor-pointer">tournament</li>
           <li className="hover:text-emerald-400 transition-colors cursor-pointer">challenges</li>
         </ul>

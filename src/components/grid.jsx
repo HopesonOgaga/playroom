@@ -82,24 +82,6 @@ function Games() {
               </h3>
               <p className="text-gray-400 text-sm mb-4">{p.desc}</p>
 
-              {/* <div className="flex gap-3">
-                <a
-                  href={p.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-                >
-                  X
-                </a>
-                <a
-                  href={p.discord}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 text-sm bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition"
-                >
-                  Discord
-                </a>
-              </div> */}
             </div>
           ))}
         </div>
