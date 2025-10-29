@@ -3,42 +3,42 @@ function Games() {
     {
       name: "Valorant",
       desc: "Tactical shooter full of intense rounds and strategy.",
-      logo: "/images/valorant.jpg",
+      logo: "/images/card/valorant.png",
       status: "Ongoing",
      
     },
     {
       name: "Apex Legends",
       desc: "Battle royale with heroes, squads, and fast-paced combat.",
-      logo: "/images/apex.jpg",
+      logo: "/images/card/apex.jpg",
       status: "Upcoming",
      
     },
     {
       name: "CS2",
       desc: "Classic FPS reinvented for the modern era.",
-      logo: "/images/cs2.jpg",
+      logo: "/images/card/csgo.png",
       status: "Ongoing",
       
     },
     {
       name: "Fortnite",
       desc: "Creative, competitive, and endlessly fun.",
-      logo: "/images/fortnite.jpg",
+      logo: "/images/card/fornite.jpg",
       status: "Ongoing",
      
     },
     {
       name: "League of Legends",
       desc: "Battle for dominance in the Rift with your team.",
-      logo: "/images/lol.jpg",
+      logo: "/images/card/lol.jpg",
       status: "Ongoing",
       
     },
     {
       name: "PUBG",
       desc: "Survive, scavenge, and conquer in open-world chaos.",
-      logo: "/images/pubg.jpg",
+      logo: "/images/card/pubg.jpg",
       status: "Upcoming",
       
     },
@@ -56,7 +56,7 @@ function Games() {
           {games.map((p, index) => (
             <div
               key={index}
-              className="relative  rounded-2xl border border-gray-700 p-6 flex flex-col items-center text-center shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500"
+              className="relative  rounded-2xl border border-gray-700 p-2 flex flex-col items-center text-center shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500"
             >
               {/* Status Badge */}
               <div className="absolute top-4 right-4">
@@ -74,7 +74,7 @@ function Games() {
               <img
                 src={p.logo}
                 alt={p.name}
-                className="w-24 h-24 object-cover rounded-xl mb-4"
+                className="w-full h-full object-cover rounded-xl mb-4"
               />
 
               <h3 className="text-xl font-semibold text-white mb-2">

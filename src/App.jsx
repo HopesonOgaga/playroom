@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Dashboard from "./db/dashboard"
 import HOME from "./page/home"
-import CreateTournament from "./db/events"
+import CreateTournament from "./db/createtournament"
 
 function App() {
   return (
