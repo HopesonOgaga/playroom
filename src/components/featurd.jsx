@@ -5,7 +5,7 @@ const featuredPrograms = [
     title: "Valorant Showdown",
     img: "/images/valorant.png",
     desc: "Compete with top agents for the $5,000 prize pool.",
-    link: "https://example.com/valorant",
+    link: "https://playvalorant.com/en-gb/",
   },
   {
     title: "FIFA Pro Cup",
@@ -17,13 +17,13 @@ const featuredPrograms = [
     title: "CS2 Frag Fest",
     img: "/images/csgo2.png",
     desc: "Battle in intense matches across global servers.",
-    link: "https://example.com/cs2",
+    link: "https://www.counter-strike.net/cs2",
   },
   {
     title: "Apex Legends Arena",
     img: "/images/apex2.jpg",
     desc: "Join squads and fight for the Apex Champion title.",
-    link: "https://example.com/apex",
+    link: "https://www.ea.com/games/apex-legends/apex-legends",
   },
 ];
 
