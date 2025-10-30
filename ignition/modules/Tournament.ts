@@ -1,7 +1,9 @@
 import { buildModule } from "@nomicfoundation/hardhat-ignition/modules";
 
 export default buildModule("TournamentModule", (m) => {
-  const tournament = m.contract("Tournament");
+
+  const owner = m.getAccount(0);
+  const tournament = m.contract("TournamentContract",[owner]);
 
   return { tournament };
 });

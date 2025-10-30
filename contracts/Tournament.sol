@@ -60,15 +60,14 @@ contract TournamentContract is Ownable, ReentrancyGuard {
     event TournamentCancelled(uint256 indexed tournamentId, address indexed organizer, uint256 refundAmount);
 
     /**
-     * @param _usdcTokenAddress - ERC20 token used for prize pools (USDC)
      * @param initialOwner - address to receive ownership (optional: pass deployer if zero address)
      */
-    constructor(address _usdcTokenAddress, address initialOwner)
-        Ownable(initialOwner == address(0) ? msg.sender : initialOwner)
+    constructor(address initialOwner)
+        Ownable(initialOwner)
         ReentrancyGuard()
     {
-        require(_usdcTokenAddress != address(0), "USDC address zero");
-        USDC_TOKEN = IERC20(_usdcTokenAddress);
+        // Official USDC address on Arbitrum Sepolia (6 decimals)
+        USDC_TOKEN = IERC20(0x75faf114eafb1BDbe2F0316DF893fd58CE46AA4d);
     }
 
     // --- Admin ---
