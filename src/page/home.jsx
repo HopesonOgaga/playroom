@@ -3,6 +3,9 @@ import FeaturedPrograms from "../components/featurd";
 import Games from "../components/grid";
 import FOOTER from "./footer";
 import HEADER from "./header";
+import { CONTRACT_ABI } from "../contractConfig";
+
+console.log(CONTRACT_ABI);
 
 function HOME() {
   return (
