@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+/* 🎮 Playroom Theme Colors */
+
+/* Primary Gradient — deep to bright red */
+.bg-playroom-gradient {
+  background: linear-gradient(135deg, #8b0000 0%, #ff0000 50%, #ff4d4d 100%);
+}
+
+/* Secondary Gradient — dark crimson blend */
+.bg-playroom-crimson {
+  background: linear-gradient(135deg, #7a0000, #b30000);
+}
+
+/* Accent — blue glow / highlight */
+.text-playroom-accent {
+  color: #3b82f6; /* Tailwind’s blue-500 */
+}
+
+/* Soft red shadow for depth */
+.shadow-playroom {
+  box-shadow: 0 4px 20px rgba(255, 0, 0, 0.3);
+}
+
+/* Background overlays and effects */
+.bg-playroom-dark {
+  background-color: #0a0a0a;
+}
+
+.bg-playroom-light {
+  background-color: #f5f5f5;
+}
+
+/* Gradient overlay for hero sections */
+.bg-playroom-overlay {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9));
+}
+
+/* Button styles */
+.btn-playroom {
+  background: linear-gradient(90deg, #ff0000, #b30000);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.btn-playroom:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+/* Text glow for hero headings */
+.text-glow {
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.7);
+}
+
+:root {
+  --red-start: #ff3b3b;
+  --red-end: #ff6a00;
+  --dark-bg: #0a0a0a;
+}
