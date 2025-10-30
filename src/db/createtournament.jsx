@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import abiFile from "../smart_contract/abi.json";
+import { Link } from "react-router-dom";
 
 export default function CreateTournament({ onClose }) {
   const CONTRACT_ADDRESS = "0x433A4773B0E5800a4A6Ab7DdD0e071Db9C75475B";
@@ -44,7 +45,9 @@ export default function CreateTournament({ onClose }) {
   };
 
   const saveLocalTournament = (data) => {
-    const existing = JSON.parse(localStorage.getItem("localTournaments") || "[]");
+    const existing = JSON.parse(
+      localStorage.getItem("localTournaments") || "[]"
+    );
     const newTournament = {
       localId: Date.now(),
       ...data,
@@ -72,7 +75,9 @@ export default function CreateTournament({ onClose }) {
       saveLocalTournament(formData);
 
       // Convert date string → timestamp → BigInt
-      const dateTimestamp = Math.floor(new Date(formData.date).getTime() / 1000);
+      const dateTimestamp = Math.floor(
+        new Date(formData.date).getTime() / 1000
+      );
       const dateBigInt = BigInt(dateTimestamp);
       console.log("Date timestamp:", dateTimestamp);
 
@@ -142,12 +147,14 @@ export default function CreateTournament({ onClose }) {
         <h2 className="text-3xl font-bold italic bg-gradient-to-r from-[var(--red-start)] to-[var(--red-end)] bg-clip-text text-transparent">
           Create Tournament
         </h2>
-        <button
-          onClick={onClose}
-          className="text-3xl font-bold text-gray-400 hover:text-[var(--red-end)] transition"
-        >
-          ×
-        </button>
+        <Link to={"/dashboard"}>
+          <button
+            onClick={onClose}
+            className="text-3xl font-bold text-gray-400 hover:text-[var(--red-end)] transition"
+          >
+            ×
+          </button>
+        </Link>
       </header>
 
       <main className="w-full max-w-4xl mx-auto p-10">

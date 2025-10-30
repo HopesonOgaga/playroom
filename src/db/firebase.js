@@ -1,22 +1,31 @@
-// Import the functions you need from the SDKs you need
+// firebase.js
+
+// Import Firebase SDKs
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { getAnalytics } from "firebase/analytics";
+import { getAnalytics, isSupported } from "firebase/analytics";
 
-// Your web app's Firebase configuration
+// ✅ Use environment variables properly
 const firebaseConfig = {
-  apiKey: FIRE_BASE_TOKEN,
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: "playroom-a8d5a.firebaseapp.com",
   projectId: "playroom-a8d5a",
-  storageBucket: "playroom-a8d5a.appspot.com", // ✅ fixed here
-  messagingSenderId: MESSAGING_SENDER_ID,
-  appId: APP_ID,
-  measurementId: "G-9T7B4RZR5R"
+  storageBucket: "playroom-a8d5a.appspot.com",
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: "G-9T7B4RZR5R",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Initialize services
-const analytics = getAnalytics(app);
-export const db = getFirestore(app); // ✅ export Firestore for use elsewhere
+// Initialize Firestore
+export const db = getFirestore(app);
+
+// Initialize Analytics safely (won’t break in SSR / Node)
+let analytics = null;
+isSupported().then((yes) => {
+  if (yes) analytics = getAnalytics(app);
+});
+
+export { analytics };
