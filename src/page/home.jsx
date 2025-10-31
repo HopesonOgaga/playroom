@@ -4,6 +4,7 @@ import Games from "../components/grid";
 import FOOTER from "./footer";
 import HEADER from "./header";
 import { CONTRACT_ABI } from "../contractConfig";
+import { Link } from "react-router-dom";
 
 console.log(CONTRACT_ABI);
 
@@ -42,9 +43,11 @@ function HOME() {
 
           {/* CTA Button */}
           <div className="z-10 mt-10">
-            <button className="btn-playroom w-40 md:w-52 h-12 capitalize">
-              learn more
-            </button>
+            <Link to={"/faq"}>
+              <button className="btn-playroom w-40 md:w-52 h-12 capitalize">
+                learn more
+              </button>
+            </Link>
           </div>
 
           {/* Floating shapes for vibe */}

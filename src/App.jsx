@@ -4,6 +4,7 @@ import HOME from "./page/home";
 import CreateTournament from "./db/createtournament";
 import TournamentDashboard from "./db/tournaments";
 import PlayerTournaments from "./components/players";
+import LearnMore from "./components/faq";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/event" element={<CreateTournament />} />
         <Route path="/TournamentDashboard" element={<TournamentDashboard />} />
         <Route path="/players" element={<PlayerTournaments/>}/>
+        <Route path ="/faq" element ={<LearnMore/>} />
       </Routes>
     </BrowserRouter>
   );
