@@ -99,7 +99,7 @@ const HEADER = () => {
         <section className="flex gap-3">
           <ul className="hidden md:flex items-center gap-8 text-sm uppercase font-medium tracking-wide">
             <Link to="/dashboard"><li className="hover:text-[var(--red-end)] cursor-pointer">dashboard</li></Link>
-            <Link to="/tournament"><li className="hover:text-[var(--red-end)] cursor-pointer">tournament</li></Link>
+            <Link to="/players"><li className="hover:text-[var(--red-end)] cursor-pointer">tournament</li></Link>
             <Link to="/challenges"><li className="hover:text-[var(--red-end)] cursor-pointer">challenges</li></Link>
           </ul>
 
@@ -150,7 +150,7 @@ const HEADER = () => {
 
               <ul className="flex flex-col gap-6 text-lg">
                 <li onClick={() => handleMobileNavClick("/dashboard")} className="hover:text-[var(--red-end)] cursor-pointer font-semibold capitalize">dashboard</li>
-                <li onClick={() => handleMobileNavClick("/tournament")} className="hover:text-[var(--red-end)] cursor-pointer font-semibold capitalize">tournament</li>
+                <li onClick={() => handleMobileNavClick("/players")} className="hover:text-[var(--red-end)] cursor-pointer font-semibold capitalize">tournament</li>
                 <li onClick={() => handleMobileNavClick("/challenges")} className="hover:text-[var(--red-end)] cursor-pointer font-semibold capitalize">challenges</li>
               </ul>
 

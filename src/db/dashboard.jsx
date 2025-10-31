@@ -47,7 +47,7 @@ export default function Dashboard() {
             </h1>
           </Link>
           <Link
-            to="/event"
+            to="/TournamentDashboard"
             className="capitalize text-base font-medium hover:text-[#ff7c7c] transition"
           >
             events
