@@ -52,6 +52,25 @@ const config: HardhatUserConfig = {
       chainId: 42161,
     },
   },
+  verify:{
+    etherscan: {
+    apiKey: configVariable("ETHERSCAN_API_KEY"),
+   },
+  },
+    chainDescriptors: {
+    // Arbitrum One (Mainnet)
+    42161: {
+      name: "ArbitrumOne",
+      blockExplorers: {
+        // 'etherscan' is the key used by the hardhat-verify plugin
+        etherscan: {
+          name: "Arbiscan", // Display name
+          url: "https://arbiscan.io", // Browser URL
+          apiUrl: "https://api.arbiscan.io/api", // API URL for verification
+        },
+      },
+    },
+  },
 };
 
 export default config;
