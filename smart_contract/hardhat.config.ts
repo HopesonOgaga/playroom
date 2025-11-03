@@ -44,6 +44,13 @@ const config: HardhatUserConfig = {
       accounts: [configVariable("ARBITRUM_PRIVATE_KEY")],
       chainId: 421614,
     },
+    arbitrumOne: {
+      type: "http",
+      chainType: "op",
+      url: configVariable("ARBITRUM_MAINNET_RPC_URL"), // e.g., https://arb1.arbitrum.io/rpc
+      accounts: [configVariable("ARBITRUM_PRIVATE_KEY")],
+      chainId: 42161,
+    },
   },
 };
 

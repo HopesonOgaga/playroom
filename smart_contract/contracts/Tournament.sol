@@ -15,6 +15,8 @@ contract TournamentContract is Ownable, ReentrancyGuard {
 
     IERC20 public immutable USDC_TOKEN;
     uint256 public tournamentCounter;
+    address public platformFeeAddress;
+    uint256 public platformFeeBasisPoints;
 
     struct Tournament {
         uint256 id;
@@ -67,7 +69,21 @@ contract TournamentContract is Ownable, ReentrancyGuard {
         ReentrancyGuard()
     {
         // Official USDC address on Arbitrum Sepolia (6 decimals)
-        USDC_TOKEN = IERC20(0x75faf114eafb1BDbe2F0316DF893fd58CE46AA4d);
+        //USDC_TOKEN = IERC20(0x75faf114eafb1BDbe2F0316DF893fd58CE46AA4d);
+        USDC_TOKEN = IERC20(0xaf88d065e77c8cC2239327C5EDb3A432268e5831);
+        platformFeeAddress = initialOwner != address(0) ? initialOwner : msg.sender;
+        platformFeeBasisPoints = 500; // 5% default
+    }
+
+    // --- OnlyOwner functions ---
+    function setPlatformFeeAddress(address _newAddress) external onlyOwner {
+        require(_newAddress != address(0), "Invalid address");
+        platformFeeAddress = _newAddress;
+    }
+
+    function setPlatformFeeBasisPoints(uint256 _newBps) external onlyOwner {
+        require(_newBps <= 1000, "Max 10%");
+        platformFeeBasisPoints = _newBps;
     }
 
     // --- Admin ---
@@ -97,8 +113,15 @@ contract TournamentContract is Ownable, ReentrancyGuard {
         require(_prizePool > 0, "Prize pool must be > 0");
         require(!banList[msg.sender], "Organizer is banned");
 
+        uint256 platformFee = (_prizePool * platformFeeBasisPoints) / 10000;
+        uint256 netPrizePool = _prizePool - platformFee;
+
+        require(netPrizePool > 0, "Prize pool too small to cover fee");
+
         // Transfer tokens into contract safely
         USDC_TOKEN.safeTransferFrom(msg.sender, address(this), _prizePool);
+
+        USDC_TOKEN.safeTransfer(platformFeeAddress, platformFee);
 
         tournamentCounter++;
         uint256 newId = tournamentCounter;
@@ -108,12 +131,12 @@ contract TournamentContract is Ownable, ReentrancyGuard {
         t.name = _name;
         t.game = _game;
         t.description = _description;
-        t.prizePool = _prizePool;
-        t.remainingPool = _prizePool;
+        t.prizePool = netPrizePool;
+        t.remainingPool = netPrizePool;
         t.organizer = msg.sender;
         t.isComplete = false;
 
-        emit TournamentCreated(newId, msg.sender, _name, _prizePool);
+        emit TournamentCreated(newId, msg.sender, _name, netPrizePool);
     }
 
     /**
