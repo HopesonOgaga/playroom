@@ -69,8 +69,8 @@ contract TournamentContract is Ownable, ReentrancyGuard {
         ReentrancyGuard()
     {
         // Official USDC address on Arbitrum Sepolia (6 decimals)
-        //USDC_TOKEN = IERC20(0x75faf114eafb1BDbe2F0316DF893fd58CE46AA4d);
-        USDC_TOKEN = IERC20(0xaf88d065e77c8cC2239327C5EDb3A432268e5831);
+        USDC_TOKEN = IERC20(0x75faf114eafb1BDbe2F0316DF893fd58CE46AA4d);
+        //USDC_TOKEN = IERC20(0xaf88d065e77c8cC2239327C5EDb3A432268e5831);
         platformFeeAddress = initialOwner != address(0) ? initialOwner : msg.sender;
         platformFeeBasisPoints = 500; // 5% default
     }
